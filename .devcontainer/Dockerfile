@@ -21,13 +21,12 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | s
     && sudo apt install gh -y
 
 # Miniconda Installation
-RUN wget \
-    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh \
     && mkdir /root/.conda \
-    && bash Miniconda3-latest-Linux-x86_64.sh -b \
-    && rm -f Miniconda3-latest-Linux-x86_64.sh 
+    && bash Miniconda3-latest-Linux-aarch64.sh -b \
+    && rm -f Miniconda3-latest-Linux-aarch64.sh 
 
-#Setting up Base Environment for work
+# Setting up Base Environment for work
 RUN conda update -n base -c defaults conda -y \
     && conda init bash \
     && conda install -y numpy pandas matplotlib scipy sympy autopep8 requests \
